@@ -1,0 +1,113 @@
+/*Given an unsorted integer array,find the first repeative positive integer*/
+=======================================================
+process-1:
+------------------------------------------------------------------
+#include<stdio.h>
+
+void main()
+
+{
+
+    int n,i,A;
+
+    printf("\n enter number of elements:");
+
+    scanf("%d",&n);
+
+    int a[n],a1[n];
+
+    for(i=0;i<n;i++)
+
+    a1[i]=0;
+
+    printf("\n enter elements into the array:");
+
+    for(i=0;i<n;i++)
+
+    scanf("%d",&a[i]);
+
+    for(i=0;i<n;i++)
+
+    {
+
+        if(a[i]<0)
+
+        continue;
+
+    if(a1[a[i]%10]==0)
+
+    {
+
+        a1[i]=a[i]%10;
+
+    }
+
+    else
+
+    {
+
+        A=a[i]%10;
+
+        break;
+
+    }
+
+    }
+
+    printf("\n first repeating element is:%d",A);
+
+}
+====================================================================================
+process-2:
+---------------------------------------------------------------------------------------------------
+#include<stdio.h>
+
+void main()
+
+{
+
+    int n,i,A;
+
+    printf("\n enter number of elements:");
+
+    scanf("%d",&n);
+
+    int a[n];
+
+    printf("\n enter elements into the array:");
+
+    for(i=0;i<n;i++)
+
+    scanf("%d",&a[i]);
+
+    for(i=0;i<n;i++)
+
+    {
+
+        if(a[i]<0)
+
+        continue;
+
+    if(a[a[i]%n]>n)
+
+    {
+
+        A=a[i]%n;
+
+        break;
+
+    }
+
+    else
+
+    {
+
+        a[a[i]]+=n;
+
+    }
+
+    }
+
+    printf("\n first repeating element is:%d",A);
+
+}

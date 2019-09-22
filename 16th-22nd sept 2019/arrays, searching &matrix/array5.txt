@@ -1,0 +1,40 @@
+/*You are given a read only array of n integers from 1 t0 n.
+Each integer appears exactly once except A which appears twice and B which is missing.
+Return A and b.
+Note:Your algorithm should have a linear runtime complexity.Could you implement it without using extra memory*/
+==============================================================================================================
+#include<stdio.h>
+void main()
+{
+int n,sum1=0,suma=0,A,B;
+printf("\n enter the number of elements:");
+scanf("%d",&n);
+int a[n];
+printf("\n enter elements into array:");
+for(int i=0;i<n;i++)
+scanf("%d",&a[i]);
+for(int i=1;i<=n;i++)
+sum1=sum1+i;
+for(int i=0;i<n;i++)
+suma=suma+a[i];
+for(int i=0;i<n;i++)
+{
+if(a[a[i]%n]>n)
+{
+A=a[i]%n;
+break;
+}
+else
+a[a[i]%n]+=n;
+}
+suma=suma-A;
+B=sum1-suma;
+printf("\n A=%d \t B=%d",A,B);
+}
+output
+===============
+enter the number of elements:6                                                                                                                
+                                                                                                                                               
+ enter elements into array:1 2 3 5 2 4                                                                                                         
+                                                                                                                                               
+ A=2     B=6     
